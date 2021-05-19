@@ -6,15 +6,15 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 09:34:21 by dpoinsu           #+#    #+#             */
-/*   Updated: 2021/05/19 12:16:03 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2021/05/19 14:15:38 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sa(int *listA)
+void	sa(char **listA)
 {
-	int save;
+	char *save;
 
 	save = listA[0];
 	listA[0] = listA[1];
@@ -22,9 +22,9 @@ void	sa(int *listA)
 	ft_putstr("sa\n");
 }
 
-void	rra(int *listA)
+void	rra(char **listA)
 {
-	int save;
+	char *save;
 	int i;
 	
 	save = listA[len_list(listA) - 1];
@@ -38,9 +38,9 @@ void	rra(int *listA)
 	ft_putstr("rra\n");
 }
 
-void	ra(int *list)
+void	ra(char **list)
 {
-	int save;
+	char *save;
 	int i;
 
 	save = list[0];
@@ -54,7 +54,7 @@ void	ra(int *list)
 	ft_putstr("ra\n");
 }
 
-void	pb(int *listA, int *listB)
+void	pb(char **listA, char **listB)
 {
 	int len;
 
@@ -73,7 +73,7 @@ void	pb(int *listA, int *listB)
 	ft_putstr("pb\n");
 }
 
-void	pa(int *listA, int *listB)
+void	pa(char **listA, char **listB)
 {
 	int len;
 

@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 16:43:47 by dpoinsu           #+#    #+#             */
-/*   Updated: 2021/05/19 14:05:54 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2021/05/19 14:28:40 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ int	ft_error(char **argv, int argc)
 int	is_sorted(char **argv, int argc)
 {
 	int i;
+	int len;
 
+	len = argc - 1;
 	i = 2;
 	if (argc == 2)
 		return (1);
@@ -55,8 +57,8 @@ int	is_sorted(char **argv, int argc)
 int	main(int argc, char **argv)
 {
 	int i;
-	int *listA;
-	int *listB;
+	char **listA;
+	char **listB;
 
 	i = 1;
 	if (ft_error(argv, argc))
@@ -70,12 +72,12 @@ int	main(int argc, char **argv)
 	int c = 0;
 	while (c < len_list(listA))
 	{
-		printf("%d,", listA[c]);
+		printf("%s,", listA[c]);
 		c++;
 	}
 }
 
-void	sort_list(int *listA, int *listB)
+void	sort_list(char **listA, char **listB)
 {
 	int len;
 	int index;

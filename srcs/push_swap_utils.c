@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 09:12:09 by dpoinsu           #+#    #+#             */
-/*   Updated: 2021/05/19 14:08:13 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2021/05/19 14:26:57 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	is_doublon(char **list)
 	return (0);
 }
 
-int	is_number(char* str)
+int	is_number(char *str)
 {
 	int i;
 
@@ -48,7 +48,7 @@ int	is_number(char* str)
 	return (1);
 }
 
-void	treat_list(char** argv, int *listA)
+void	treat_list(char** argv, char **listA)
 {
 	int i;
 	int j;
@@ -57,22 +57,22 @@ void	treat_list(char** argv, int *listA)
 	while (argv[i])
 	{
 		j = i - 1;
-		listA[j] = ft_atoi(argv[i]);
+		listA[j] = argv[i];
 		i++;
 	}
 }
 
-int	len_list(int *list)
+int	len_list(char **list)
 {
 	int i;
 
 	i = 0;
-	while (list[i] != '\0')
+	while (list[i])
 		i++;
 	return (i);
 }
 
-int	smallest(int *list)
+int	smallest(char **list)
 {
 	int save_index;
 	int smallest;
@@ -80,12 +80,12 @@ int	smallest(int *list)
 
 	i = 0;
 	save_index = 0;
-	smallest = list[0];
+	smallest = ft_atoi(list[0]);
 	while (list[i])
 	{
-		if (list[i] < smallest)
+		if (ft_atoi(list[i]) < smallest)
 		{
-			smallest = list[i];
+			smallest = ft_atoi(list[i]);
 			save_index = i;
 		}
 		i++;
