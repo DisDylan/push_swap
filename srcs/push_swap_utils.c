@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 09:12:09 by dpoinsu           #+#    #+#             */
-/*   Updated: 2021/05/19 12:16:50 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2021/05/19 14:08:13 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	len_list(int *list)
 	int i;
 
 	i = 0;
-	while (list[i])
+	while (list[i] != '\0')
 		i++;
 	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 16:43:47 by dpoinsu           #+#    #+#             */
-/*   Updated: 2021/05/19 12:17:15 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2021/05/19 14:05:54 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,12 @@ int	main(int argc, char **argv)
 	listB = malloc(sizeof(int*) * argc);
 	treat_list(argv, listA);
 	sort_list(listA, listB);
+	int c = 0;
+	while (c < len_list(listA))
+	{
+		printf("%d,", listA[c]);
+		c++;
+	}
 }
 
 void	sort_list(int *listA, int *listB)
