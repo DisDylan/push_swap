@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 16:43:47 by dpoinsu           #+#    #+#             */
-/*   Updated: 2021/05/19 14:28:40 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2021/05/19 14:36:54 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ int	main(int argc, char **argv)
 		printf("%s,", listA[c]);
 		c++;
 	}
+	free(listA);
+	free(listB);
 }
 
 void	sort_list(char **listA, char **listB)
