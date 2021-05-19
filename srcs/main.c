@@ -6,11 +6,51 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 16:43:47 by dpoinsu           #+#    #+#             */
-/*   Updated: 2021/05/19 09:29:07 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2021/05/19 12:17:15 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "../includes/push_swap.h"
+
+int	ft_error(char **argv, int argc)
+{
+	int error;
+	int i;
+
+	i = 1;
+	error = 0;
+	if (argc == 1)
+		error = 1;
+	if (is_doublon(argv))
+		error = 1;
+	while (i < argc)
+	{
+		if (!(is_number(argv[i])))
+			error = 1;
+		if (ft_atoi(argv[i]) < INT_MIN || ft_atoi(argv[i]) > INT_MAX)
+			error = 1;
+		i++;
+	}
+	if (error == 1)
+		ft_putstr("Error\n");
+	return (error);
+}
+
+int	is_sorted(char **argv, int argc)
+{
+	int i;
+
+	i = 2;
+	if (argc == 2)
+		return (1);
+	while (argv[i])
+	{
+		if (ft_atoi(argv[i]) < ft_atoi(argv[i - 1]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int	main(int argc, char **argv)
 {
@@ -19,20 +59,13 @@ int	main(int argc, char **argv)
 	int *listB;
 
 	i = 1;
-	if (argc == 1)
+	if (ft_error(argv, argc))
 		return (0);
-	if (is_doublon(*argv))
+	if (is_sorted(argv, argc))
 		return (0);
-	while (i < argc)
-	{
-		if (argv[i] < INT_MIN || argv[i] > INT_MAX)
-			return (0);
-		if (!(is_number(argv[i])))
-			return (0);
-	}
 	listA = malloc(sizeof(int*) * argc);
 	listB = malloc(sizeof(int*) * argc);
-	treat_list(*argv, *listA);
+	treat_list(argv, listA);
 	sort_list(listA, listB);
 }
 
@@ -41,13 +74,13 @@ void	sort_list(int *listA, int *listB)
 	int len;
 	int index;
 
-	len = list_len(listA);
+	len = len_list(listA);
 	while (len > 2)
 	{
 		index = smallest(listA);
 		if (index > (len / 2))
 		{
-			while (index != len)
+			while (index != len - 1)
 			{
 				rra(listA);
 				index++;
