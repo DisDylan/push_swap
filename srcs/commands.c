@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 09:34:21 by dpoinsu           #+#    #+#             */
-/*   Updated: 2021/05/20 08:32:43 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2021/05/20 08:40:03 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	sa(char **listA)
 void	rra(char **listA)
 {
 	char	*save;
-	int	i;
+	int	 i;
 
 	save = listA[len_list(listA) - 1];
 	i = len_list(listA) - 1;
@@ -41,7 +41,7 @@ void	rra(char **listA)
 void	ra(char **list)
 {
 	char	*save;
-	int	i;
+	int	 i;
 
 	save = list[0];
 	i = 0;
