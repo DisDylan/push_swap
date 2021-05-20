@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 15:32:38 by dpoinsu           #+#    #+#             */
-/*   Updated: 2021/05/20 08:33:55 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2021/05/20 08:41:36 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ long	ft_atoi(const char *str)
 	neg = 1;
 	num = 0;
 	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' 
-			|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
+|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
