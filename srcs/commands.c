@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 09:34:21 by dpoinsu           #+#    #+#             */
-/*   Updated: 2021/05/19 14:15:38 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2021/05/20 08:32:43 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	sa(char **listA)
 {
-	char *save;
+	char	*save;
 
 	save = listA[0];
 	listA[0] = listA[1];
@@ -24,9 +24,9 @@ void	sa(char **listA)
 
 void	rra(char **listA)
 {
-	char *save;
-	int i;
-	
+	char	*save;
+	int	i;
+
 	save = listA[len_list(listA) - 1];
 	i = len_list(listA) - 1;
 	while (i > 0)
@@ -40,8 +40,8 @@ void	rra(char **listA)
 
 void	ra(char **list)
 {
-	char *save;
-	int i;
+	char	*save;
+	int	i;
 
 	save = list[0];
 	i = 0;
@@ -56,7 +56,7 @@ void	ra(char **list)
 
 void	pb(char **listA, char **listB)
 {
-	int len;
+	int	len;
 
 	len = len_list(listB);
 	while (len > 0)
@@ -75,7 +75,7 @@ void	pb(char **listA, char **listB)
 
 void	pa(char **listA, char **listB)
 {
-	int len;
+	int	len;
 
 	len = len_list(listA);
 	while (len > 0)
