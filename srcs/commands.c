@@ -6,42 +6,42 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 09:34:21 by dpoinsu           #+#    #+#             */
-/*   Updated: 2021/05/19 12:16:03 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2021/05/20 08:51:45 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sa(int *listA)
+void	sa(char **list_a)
 {
-	int save;
+	char	*save;
 
-	save = listA[0];
-	listA[0] = listA[1];
-	listA[1] = save;
+	save = list_a[0];
+	list_a[0] = list_a[1];
+	list_a[1] = save;
 	ft_putstr("sa\n");
 }
 
-void	rra(int *listA)
+void	rra(char **list_a)
 {
-	int save;
-	int i;
-	
-	save = listA[len_list(listA) - 1];
-	i = len_list(listA) - 1;
+	char	*save;
+	int		i;
+
+	save = list_a[len_list(list_a) - 1];
+	i = len_list(list_a) - 1;
 	while (i > 0)
 	{
-		listA[i] = listA[i - 1];
+		list_a[i] = list_a[i - 1];
 		i--;
 	}
-	listA[i] = save;
+	list_a[i] = save;
 	ft_putstr("rra\n");
 }
 
-void	ra(int *list)
+void	ra(char **list)
 {
-	int save;
-	int i;
+	char	*save;
+	int		i;
 
 	save = list[0];
 	i = 0;
@@ -54,39 +54,39 @@ void	ra(int *list)
 	ft_putstr("ra\n");
 }
 
-void	pb(int *listA, int *listB)
+void	pb(char **list_a, char **list_b)
 {
-	int len;
+	int	len;
 
-	len = len_list(listB);
+	len = len_list(list_b);
 	while (len > 0)
 	{
-		listB[len] = listB[len - 1];
+		list_b[len] = list_b[len - 1];
 		len--;
 	}
-	listB[len] = listA[len];
-	while (len < len_list(listA))
+	list_b[len] = list_a[len];
+	while (len < len_list(list_a))
 	{
-		listA[len] = listA[len + 1];
+		list_a[len] = list_a[len + 1];
 		len++;
 	}
 	ft_putstr("pb\n");
 }
 
-void	pa(int *listA, int *listB)
+void	pa(char **list_a, char **list_b)
 {
-	int len;
+	int	len;
 
-	len = len_list(listA);
+	len = len_list(list_a);
 	while (len > 0)
 	{
-		listA[len] = listA[len - 1];
+		list_a[len] = list_a[len - 1];
 		len--;
 	}
-	listA[len] = listB[len];
-	while (len < len_list(listB))
+	list_a[len] = list_b[len];
+	while (len < len_list(list_b))
 	{
-		listB[len] = listB[len + 1];
+		list_b[len] = list_b[len + 1];
 		len++;
 	}
 	ft_putstr("pa\n");

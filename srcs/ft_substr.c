@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/19 11:04:17 by dpoinsu           #+#    #+#             */
-/*   Updated: 2021/05/20 08:34:14 by dpoinsu          ###   ########.fr       */
+/*   Created: 2020/11/18 14:30:41 by dpoinsu           #+#    #+#             */
+/*   Updated: 2021/05/20 19:31:19 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_putstr(char *s)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	i;
+	size_t	i;
+	size_t	j;
+	char	*str;
 
-	if (s)
+	if (!s)
+		return (NULL);
+	if (!(str = (char *)malloc(sizeof(*s) * (len + 1))))
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s[i])
 	{
-		i = 0;
-		while (s[i])
+		if (i >= start && j < len)
 		{
-			write(1, &s[i], 1);
-			i++;
+			str[j] = s[i];
+			j++;
 		}
+		i++;
 	}
+	str[j] = '\0';
+	return (str);
 }

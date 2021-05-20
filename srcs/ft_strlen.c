@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/19 11:04:17 by dpoinsu           #+#    #+#             */
-/*   Updated: 2021/05/20 08:34:14 by dpoinsu          ###   ########.fr       */
+/*   Created: 2020/11/17 15:03:47 by dpoinsu           #+#    #+#             */
+/*   Updated: 2021/05/20 19:31:39 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_putstr(char *s)
+size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t i;
 
-	if (s)
-	{
-		i = 0;
-		while (s[i])
-		{
-			write(1, &s[i], 1);
-			i++;
-		}
-	}
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

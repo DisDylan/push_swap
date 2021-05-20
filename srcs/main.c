@@ -6,16 +6,16 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 16:43:47 by dpoinsu           #+#    #+#             */
-/*   Updated: 2021/05/19 14:05:54 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2021/05/20 19:29:47 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_error(char **argv, int argc)
+int		ft_error(char **argv, int argc)
 {
-	int error;
-	int i;
+	int	error;
+	int	i;
 
 	i = 1;
 	error = 0;
@@ -36,13 +36,21 @@ int	ft_error(char **argv, int argc)
 	return (error);
 }
 
-int	is_sorted(char **argv, int argc)
+int		is_sorted(char **argv, int argc, char **list_a)
 {
-	int i;
+	int	i;
+	int	j;
 
 	i = 2;
+	j = 0;
 	if (argc == 2)
+	{
+		list_a = ft_split(argv[1], ' ');
+		while (list_a[j])
+			j++;
+		argc = j + 1;
 		return (1);
+	}
 	while (argv[i])
 	{
 		if (ft_atoi(argv[i]) < ft_atoi(argv[i - 1]))
@@ -52,58 +60,52 @@ int	is_sorted(char **argv, int argc)
 	return (1);
 }
 
-int	main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
-	int i;
-	int *listA;
-	int *listB;
+	int		i;
+	char	**list_a;
+	char	**list_b;
 
 	i = 1;
+	list_a = NULL;
 	if (ft_error(argv, argc))
 		return (0);
-	if (is_sorted(argv, argc))
+	if (is_sorted(argv, argc, list_a))
 		return (0);
-	listA = malloc(sizeof(int*) * argc);
-	listB = malloc(sizeof(int*) * argc);
-	treat_list(argv, listA);
-	sort_list(listA, listB);
-	int c = 0;
-	while (c < len_list(listA))
-	{
-		printf("%d,", listA[c]);
-		c++;
-	}
+	list_a = malloc(sizeof(int*) * argc);
+	list_b = malloc(sizeof(int*) * argc);
+	treat_list(argv, list_a);
+	sort_list(list_a, list_b);
+	free(list_a);
+	free(list_b);
+	return (0);
 }
 
-void	sort_list(int *listA, int *listB)
+void	sort_list(char **list_a, char **list_b)
 {
 	int len;
 	int index;
 
-	len = len_list(listA);
+	len = len_list(list_a);
 	while (len > 2)
 	{
-		index = smallest(listA);
+		index = smallest(list_a);
 		if (index > (len / 2))
 		{
-			while (index != len - 1)
-			{
-				rra(listA);
-				index++;
-			}
-			rra(listA);
+			while (index++ != len - 1)
+				rra(list_a);
+			rra(list_a);
 		}
 		else
-			while (index != 0)
-			{
-				ra(listA);
-				index--;
-			}
-		pb(listA, listB);
+			while (index-- != 0)
+				ra(list_a);
+		if (is_sorted(list_a, 3, list_a))
+			break ;
+		pb(list_a, list_b);
 		len--;
 	}
-	if (listA[0] > listA[1])
-		sa(listA);
-	while (listB[0])
-		pa(listA, listB);
+	if (list_a[0] > list_a[1])
+		sa(list_a);
+	while (list_b[0])
+		pa(list_a, list_b);
 }

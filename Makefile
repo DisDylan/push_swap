@@ -1,4 +1,4 @@
-SRCS = srcs/commands.c srcs/ft_atoi.c srcs/ft_isdigit.c srcs/ft_putstr.c srcs/push_swap_utils.c srcs/main.c
+SRCS = srcs/commands.c srcs/ft_atoi.c srcs/ft_isdigit.c srcs/ft_putstr.c srcs/push_swap_utils.c srcs/main.c srcs/ft_split.c srcs/ft_substr.c srcs/ft_strlen.c
 
 OBJS = ${SRCS:.c=.o}
 
