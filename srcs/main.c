@@ -6,13 +6,13 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 16:43:47 by dpoinsu           #+#    #+#             */
-/*   Updated: 2021/05/20 08:35:44 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2021/05/20 09:02:23 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_error(char **argv, int argc)
+int		ft_error(char **argv, int argc)
 {
 	int	error;
 	int	i;
@@ -36,7 +36,7 @@ int	ft_error(char **argv, int argc)
 	return (error);
 }
 
-int	is_sorted(char **argv, int argc)
+int		is_sorted(char **argv, int argc)
 {
 	int	i;
 	int	len;
@@ -54,60 +54,50 @@ int	is_sorted(char **argv, int argc)
 	return (1);
 }
 
-int	main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
-	int	i;
-	char	**listA;
-	char	**listB;
+	int		i;
+	char	**list_a;
+	char	**list_b;
 
 	i = 1;
 	if (ft_error(argv, argc))
 		return (0);
 	if (is_sorted(argv, argc))
 		return (0);
-	listA = malloc(sizeof(int*) * argc);
-	listB = malloc(sizeof(int*) * argc);
-	treat_list(argv, listA);
-	sort_list(listA, listB);
-	int c = 0;
-	while (c < len_list(listA))
-	{
-		printf("%s,", listA[c]);
-		c++;
-	}
-	free(listA);
-	free(listB);
+	list_a = malloc(sizeof(int*) * argc);
+	list_b = malloc(sizeof(int*) * argc);
+	treat_list(argv, list_a);
+	sort_list(list_a, list_b);
+	free(list_a);
+	free(list_b);
 }
 
-void	sort_list(char **listA, char **listB)
+void	sort_list(char **list_a, char **list_b)
 {
 	int len;
 	int index;
 
-	len = len_list(listA);
+	len = len_list(list_a);
 	while (len > 2)
 	{
-		index = smallest(listA);
+		index = smallest(list_a);
 		if (index > (len / 2))
 		{
-			while (index != len - 1)
-			{
-				rra(listA);
-				index++;
-			}
-			rra(listA);
+			while (index++ != len - 1)
+				rra(list_a);
+			rra(list_a);
 		}
 		else
-			while (index != 0)
-			{
-				ra(listA);
-				index--;
-			}
-		pb(listA, listB);
+			while (index-- != 0)
+				ra(list_a);
+		if (is_sorted(list_a, 3))
+			break ;
+		pb(list_a, list_b);
 		len--;
 	}
-	if (listA[0] > listA[1])
-		sa(listA);
-	while (listB[0])
-		pa(listA, listB);
+	if (list_a[0] > list_a[1])
+		sa(list_a);
+	while (list_b[0])
+		pa(list_a, list_b);
 }

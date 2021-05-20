@@ -6,17 +6,17 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 09:12:09 by dpoinsu           #+#    #+#             */
-/*   Updated: 2021/05/19 14:26:57 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2021/05/20 09:04:51 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	is_doublon(char **list)
+int		is_doublon(char **list)
 {
-	int i;
-	int j;
-	
+	int	i;
+	int	j;
+
 	i = 1;
 	while (list[i])
 	{
@@ -32,9 +32,9 @@ int	is_doublon(char **list)
 	return (0);
 }
 
-int	is_number(char *str)
+int		is_number(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str[i] == '-')
@@ -48,21 +48,21 @@ int	is_number(char *str)
 	return (1);
 }
 
-void	treat_list(char** argv, char **listA)
+void	treat_list(char **argv, char **list_a)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
 	while (argv[i])
 	{
 		j = i - 1;
-		listA[j] = argv[i];
+		list_a[j] = argv[i];
 		i++;
 	}
 }
 
-int	len_list(char **list)
+int		len_list(char **list)
 {
 	int i;
 
@@ -72,7 +72,7 @@ int	len_list(char **list)
 	return (i);
 }
 
-int	smallest(char **list)
+int		smallest(char **list)
 {
 	int save_index;
 	int smallest;
