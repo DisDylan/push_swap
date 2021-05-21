@@ -36,7 +36,7 @@ int		ft_error(char **argv, int argc)
 	return (error);
 }
 
-int		is_sorted(char **argv, int argc, char **list_a)
+int		is_sorted(char **argv, int argc)
 {
 	int	i;
 	int	j;
@@ -45,10 +45,12 @@ int		is_sorted(char **argv, int argc, char **list_a)
 	j = 0;
 	if (argc == 2)
 	{
+		/*
 		list_a = ft_split(argv[1], ' ');
 		while (list_a[j])
 			j++;
 		argc = j + 1;
+		*/
 		return (1);
 	}
 	while (argv[i])
@@ -70,7 +72,7 @@ int		main(int argc, char **argv)
 	list_a = NULL;
 	if (ft_error(argv, argc))
 		return (0);
-	if (is_sorted(argv, argc, list_a))
+	if (is_sorted(argv, argc))
 		return (0);
 	list_a = malloc(sizeof(int*) * argc);
 	list_b = malloc(sizeof(int*) * argc);
@@ -99,7 +101,7 @@ void	sort_list(char **list_a, char **list_b)
 		else
 			while (index-- != 0)
 				ra(list_a);
-		if (is_sorted(list_a, 3, list_a))
+		if (is_sorted(list_a, 3))
 			break ;
 		pb(list_a, list_b);
 		len--;

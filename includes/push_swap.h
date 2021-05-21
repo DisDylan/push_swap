@@ -40,7 +40,7 @@ void	pa(char **listA, char **listB);
 void	ft_putstr(char *s);
 int	ft_isdigit(int c);
 long	ft_atoi(const char *str);
-int	is_sorted(char **argv, int argc, char **list_a);
+int	is_sorted(char **argv, int argc);
 char	**ft_split(char const *s, char c);
 size_t	ft_strlen(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
