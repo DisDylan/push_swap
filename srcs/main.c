@@ -17,11 +17,11 @@ int	ft_error(char **argv)
 	int error;
 	int i;
 
-	i = 1;
+	i = 0;
 	error = 0;
 	if (is_doublon(argv))
 		error = 1;
-	while (i < len_list(argv) - 1)
+	while (i < len_list(argv))
 	{
 		if (!(is_number(argv[i])))
 			error = 1;
@@ -34,13 +34,11 @@ int	ft_error(char **argv)
 	return (error);
 }
 
-int	is_sorted(char **argv, int argc)
+int	is_sorted(char **argv)
 {
 	int i;
 
-	i = 2;
-	if (argc == 2)
-		return (1);
+	i = 1;
 	while (argv[i])
 	{
 		if (ft_atoi(argv[i]) < ft_atoi(argv[i - 1]))
@@ -53,32 +51,37 @@ int	is_sorted(char **argv, int argc)
 int	main(int argc, char **argv)
 {
 	int i;
-	int *list_a;
-	int *list_b;
+	char **list_a;
+	char **list_b;
 
 	i = 1;
+	list_a = NULL;
 	if (argc == 1)
 		return (0);
 	if (argc == 2 && is_number(argv[1]))
 		return (0);
+	else if (argc == 2 && (!(is_number(argv[1]))))
+		//treat_arg(argv, list_a);
+		return (0);
 	else
-		//treat_arg(argv, list_a); // malloc via split
-		treat_list(argv, list_a); // malloc dedans
+		list_a = treat_list(argv, argc);
 	if (ft_error(list_a))
 		return (0);
-	if (is_sorted(argv, argc))
+	if (is_sorted(list_a))
 		return (0);
-	list_b = malloc(sizeof(int*) * argc);
+	list_b = malloc(sizeof(char**) * len_list(list_a));
 	sort_list(list_a, list_b);
+	/*
 	int c = 0;
 	while (c < len_list(list_a))
 	{
 		printf("%d,", list_a[c]);
 		c++;
 	}
+	*/
 }
 
-void	sort_list(int *list_a, int *list_b)
+void	sort_list(char **list_a, char **list_b)
 {
 	int len;
 	int index;

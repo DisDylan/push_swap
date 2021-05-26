@@ -17,22 +17,22 @@ int	is_doublon(char **list)
 	int i;
 	int j;
 	
-	i = 1;
-	while (list[i])
+	i = len_list(list) - 1;
+	while (i > 0)
 	{
-		j = i + 1;
-		while (list[j])
+		j = i - 1;
+		while (j >= 0)
 		{
 			if (ft_atoi(list[i]) == ft_atoi(list[j]))
 				return (1);
-			j++;
+			j--;
 		}
-		i++;
+		i--;
 	}
 	return (0);
 }
 
-int	is_number(char* str)
+int	is_number(char *str)
 {
 	int i;
 
@@ -48,31 +48,34 @@ int	is_number(char* str)
 	return (1);
 }
 
-void	treat_list(char** argv, char *list_a)
+char **treat_list(char** argv, int argc)
 {
 	int i;
 	int j;
+	char **list_a;
 
 	i = 1;
+	list_a = malloc(sizeof(char**) * argc);
 	while (argv[i])
 	{
 		j = i - 1;
-		list_a[j] = ft_atoi(argv[i]);
+		list_a[j] = argv[i];
 		i++;
 	}
+	return (list_a);
 }
 
-int	len_list(int *list)
+int	len_list(char **list)
 {
 	int i;
 
 	i = 0;
-	while (list[i] != '\0')
+	while (list[i])
 		i++;
 	return (i);
 }
 
-int	smallest(int *list)
+int	smallest(char **list)
 {
 	int save_index;
 	int smallest;
@@ -80,12 +83,12 @@ int	smallest(int *list)
 
 	i = 0;
 	save_index = 0;
-	smallest = list[0];
+	smallest = ft_atoi(list[0]);
 	while (list[i])
 	{
-		if (list[i] < smallest)
+		if (ft_atoi(list[i]) < smallest)
 		{
-			smallest = list[i];
+			smallest = ft_atoi(list[i]);
 			save_index = i;
 		}
 		i++;

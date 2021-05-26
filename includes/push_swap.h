@@ -26,20 +26,20 @@
 #  define INT_MAX 2147483647
 # endif
 
-void	sort_list(int *listA, int *listB);
+void	sort_list(char **list_a, char **list_b);
 int	is_doublon(char **list);
 int	is_number(char *str);
-void	treat_list(char **argv, int *listA);
-int	len_list(int *list);
-int	smallest(int *list);
-void	sa(int *listA);
-void	rra(int *listA);
-void	ra(int *list);
-void	pb(int *listA, int *listB);
-void	pa(int *listA, int *listB);
+char **treat_list(char **argv, int argc);
+int	len_list(char **list);
+int	smallest(char **list);
+void	sa(char **list_a);
+void	rra(char **list_a);
+void	ra(char **list);
+void	pb(char **list_a, char **list_b);
+void	pa(char **list_a, char **list_b);
 void	ft_putstr(char *s);
 int	ft_isdigit(int c);
 long	ft_atoi(const char *str);
-int	is_sorted(char **argv, int argc);
+int	is_sorted(char **argv);
 
 #endif

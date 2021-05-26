@@ -12,9 +12,9 @@
 
 #include "../includes/push_swap.h"
 
-void	sa(int *list_a)
+void	sa(char **list_a)
 {
-	int save;
+	char *save;
 
 	save = list_a[0];
 	list_a[0] = list_a[1];
@@ -22,9 +22,9 @@ void	sa(int *list_a)
 	ft_putstr("sa\n");
 }
 
-void	rra(int *list_a)
+void	rra(char **list_a)
 {
-	int save;
+	char *save;
 	int i;
 	
 	save = list_a[len_list(list_a) - 1];
@@ -38,9 +38,9 @@ void	rra(int *list_a)
 	ft_putstr("rra\n");
 }
 
-void	ra(int *list)
+void	ra(char **list)
 {
-	int save;
+	char *save;
 	int i;
 
 	save = list[0];
@@ -54,7 +54,7 @@ void	ra(int *list)
 	ft_putstr("ra\n");
 }
 
-void	pb(int *list_a, int *list_b)
+void	pb(char **list_a, char **list_b)
 {
 	int len;
 
@@ -73,7 +73,7 @@ void	pb(int *list_a, int *list_b)
 	ft_putstr("pb\n");
 }
 
-void	pa(int *list_a, int *list_b)
+void	pa(char **list_a, char **list_b)
 {
 	int len;
 
