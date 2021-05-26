@@ -61,8 +61,7 @@ int	main(int argc, char **argv)
 	if (argc == 2 && is_number(argv[1]))
 		return (0);
 	else if (argc == 2 && (!(is_number(argv[1]))))
-		//treat_arg(argv, list_a);
-		return (0);
+		list_a = ft_split(argv[1], ' ');
 	else
 		list_a = treat_list(argv, argc);
 	if (ft_error(list_a))
