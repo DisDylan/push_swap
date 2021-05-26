@@ -75,10 +75,12 @@ int	main(int argc, char **argv)
 	int c = 0;
 	while (c < len_list(list_a))
 	{
-		printf("%d,", list_a[c]);
+		printf("%s,", list_a[c]);
 		c++;
 	}
+	printf("\n");
 	*/
+	return (0);
 }
 
 void	sort_list(char **list_a, char **list_b)
@@ -98,6 +100,8 @@ void	sort_list(char **list_a, char **list_b)
 				index++;
 			}
 			rra(list_a);
+			if (is_sorted(list_a))
+				break ;
 		}
 		else
 			while (index != 0)
@@ -105,10 +109,12 @@ void	sort_list(char **list_a, char **list_b)
 				ra(list_a);
 				index--;
 			}
+		if (is_sorted(list_a))
+			break ;
 		pb(list_a, list_b);
 		len--;
 	}
-	if (list_a[0] > list_a[1])
+	if (ft_atoi(list_a[0]) > ft_atoi(list_a[1]))
 		sa(list_a);
 	while (list_b[0])
 		pa(list_a, list_b);
