@@ -48,7 +48,7 @@ int	is_number(char* str)
 	return (1);
 }
 
-void	treat_list(char** argv, int *listA)
+void	treat_list(char** argv, char *list_a)
 {
 	int i;
 	int j;
@@ -57,7 +57,7 @@ void	treat_list(char** argv, int *listA)
 	while (argv[i])
 	{
 		j = i - 1;
-		listA[j] = ft_atoi(argv[i]);
+		list_a[j] = ft_atoi(argv[i]);
 		i++;
 	}
 }

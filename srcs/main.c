@@ -12,18 +12,16 @@
 
 #include "../includes/push_swap.h"
 
-int	ft_error(char **argv, int argc)
+int	ft_error(char **argv)
 {
 	int error;
 	int i;
 
 	i = 1;
 	error = 0;
-	if (argc == 1)
-		error = 1;
 	if (is_doublon(argv))
 		error = 1;
-	while (i < argc)
+	while (i < len_list(argv) - 1)
 	{
 		if (!(is_number(argv[i])))
 			error = 1;
@@ -55,55 +53,60 @@ int	is_sorted(char **argv, int argc)
 int	main(int argc, char **argv)
 {
 	int i;
-	int *listA;
-	int *listB;
+	int *list_a;
+	int *list_b;
 
 	i = 1;
-	if (ft_error(argv, argc))
+	if (argc == 1)
+		return (0);
+	if (argc == 2 && is_number(argv[1]))
+		return (0);
+	else
+		//treat_arg(argv, list_a); // malloc via split
+		treat_list(argv, list_a); // malloc dedans
+	if (ft_error(list_a))
 		return (0);
 	if (is_sorted(argv, argc))
 		return (0);
-	listA = malloc(sizeof(int*) * argc);
-	listB = malloc(sizeof(int*) * argc);
-	treat_list(argv, listA);
-	sort_list(listA, listB);
+	list_b = malloc(sizeof(int*) * argc);
+	sort_list(list_a, list_b);
 	int c = 0;
-	while (c < len_list(listA))
+	while (c < len_list(list_a))
 	{
-		printf("%d,", listA[c]);
+		printf("%d,", list_a[c]);
 		c++;
 	}
 }
 
-void	sort_list(int *listA, int *listB)
+void	sort_list(int *list_a, int *list_b)
 {
 	int len;
 	int index;
 
-	len = len_list(listA);
+	len = len_list(list_a);
 	while (len > 2)
 	{
-		index = smallest(listA);
+		index = smallest(list_a);
 		if (index > (len / 2))
 		{
 			while (index != len - 1)
 			{
-				rra(listA);
+				rra(list_a);
 				index++;
 			}
-			rra(listA);
+			rra(list_a);
 		}
 		else
 			while (index != 0)
 			{
-				ra(listA);
+				ra(list_a);
 				index--;
 			}
-		pb(listA, listB);
+		pb(list_a, list_b);
 		len--;
 	}
-	if (listA[0] > listA[1])
-		sa(listA);
-	while (listB[0])
-		pa(listA, listB);
+	if (list_a[0] > list_a[1])
+		sa(list_a);
+	while (list_b[0])
+		pa(list_a, list_b);
 }
