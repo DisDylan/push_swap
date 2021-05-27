@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-static int	over(int neg)
+static int		over(int neg)
 {
 	if (neg == -1)
 		return (0);

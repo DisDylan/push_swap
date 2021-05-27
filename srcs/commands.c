@@ -24,9 +24,9 @@ void	sa(char **list_a)
 
 void	rra(char **list_a)
 {
-	char *save;
-	int i;
-	
+	char	*save;
+	int		i;
+
 	save = list_a[len_list(list_a) - 1];
 	i = len_list(list_a) - 1;
 	while (i > 0)
@@ -40,8 +40,8 @@ void	rra(char **list_a)
 
 void	ra(char **list)
 {
-	char *save;
-	int i;
+	char	*save;
+	int		i;
 
 	save = list[0];
 	i = 0;

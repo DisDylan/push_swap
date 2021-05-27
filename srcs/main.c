@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-int	ft_error(char **argv)
+int		ft_error(char **argv)
 {
 	int error;
 	int i;
@@ -34,7 +34,7 @@ int	ft_error(char **argv)
 	return (error);
 }
 
-int	is_sorted(char **argv)
+int		is_sorted(char **argv)
 {
 	int i;
 
@@ -48,11 +48,11 @@ int	is_sorted(char **argv)
 	return (1);
 }
 
-int	main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
-	int i;
-	char **list_a;
-	char **list_b;
+	int		i;
+	char	**list_a;
+	char	**list_b;
 
 	i = 1;
 	list_a = NULL;
@@ -70,15 +70,6 @@ int	main(int argc, char **argv)
 		return (0);
 	list_b = malloc(sizeof(char**) * len_list(list_a));
 	sort_list(list_a, list_b);
-	/*
-	int c = 0;
-	while (c < len_list(list_a))
-	{
-		printf("%s,", list_a[c]);
-		c++;
-	}
-	printf("\n");
-	*/
 	return (0);
 }
 
@@ -93,21 +84,12 @@ void	sort_list(char **list_a, char **list_b)
 		index = smallest(list_a);
 		if (index > (len / 2))
 		{
-			while (index != len - 1)
-			{
-				rra(list_a);
-				index++;
-			}
-			rra(list_a);
+			loop_rra(index, len, list_a);
 			if (is_sorted(list_a))
 				break ;
 		}
 		else
-			while (index != 0)
-			{
-				ra(list_a);
-				index--;
-			}
+			loop_ra(index, list_a);
 		if (is_sorted(list_a))
 			break ;
 		pb(list_a, list_b);
