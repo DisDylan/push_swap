@@ -30,7 +30,10 @@ int		ft_error(char **argv)
 		i++;
 	}
 	if (error == 1)
+	{
+		free(argv);
 		ft_putstr("Error\n");
+	}
 	return (error);
 }
 
@@ -67,9 +70,14 @@ int		main(int argc, char **argv)
 	if (ft_error(list_a))
 		return (0);
 	if (is_sorted(list_a))
+	{
+		free(list_a);
 		return (0);
+	}
 	list_b = malloc(sizeof(char**) * len_list(list_a));
 	sort_list(list_a, list_b);
+	free(list_a);
+	free(list_b);
 	return (0);
 }
 
