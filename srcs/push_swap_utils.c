@@ -24,7 +24,10 @@ int	is_doublon(char **list)
 		while (j >= 0)
 		{
 			if (ft_atoi(list[i]) == ft_atoi(list[j]))
+			{
+				printf("doublon");
 				return (1);
+			}
 			j--;
 		}
 		i--;

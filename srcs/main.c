@@ -30,10 +30,7 @@ int	ft_error(char **argv)
 		i++;
 	}
 	if (error == 1)
-	{
-		free(argv);
 		ft_putstr("Error\n");
-	}
 	return (error);
 }
 
