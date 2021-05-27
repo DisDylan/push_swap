@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	size_t	start;
 	size_t	end;
@@ -21,9 +21,9 @@ char		**ft_split(char const *s, char c)
 	char	**tab;
 
 	nb_words = 0;
-	tab = NULL;
+	tab = (char **)malloc(sizeof(*tab) * (ft_strlen(s) / 2 + 2));
 	i = 0;
-	if (s && ((tab = (char **)malloc(sizeof(*tab) * (ft_strlen(s) / 2 + 2)))))
+	if (s)
 	{
 		while (i < ft_strlen(s))
 		{

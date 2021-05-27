@@ -14,7 +14,7 @@
 
 void	sa(char **list_a)
 {
-	char *save;
+	char	*save;
 
 	save = list_a[0];
 	list_a[0] = list_a[1];
@@ -56,7 +56,7 @@ void	ra(char **list)
 
 void	pb(char **list_a, char **list_b)
 {
-	int len;
+	int	len;
 
 	len = len_list(list_b);
 	while (len > 0)
@@ -75,7 +75,7 @@ void	pb(char **list_a, char **list_b)
 
 void	pa(char **list_a, char **list_b)
 {
-	int len;
+	int	len;
 
 	len = len_list(list_a);
 	while (len > 0)

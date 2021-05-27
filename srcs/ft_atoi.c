@@ -12,14 +12,14 @@
 
 #include "../includes/push_swap.h"
 
-static int		over(int neg)
+static int	over(int neg)
 {
 	if (neg == -1)
 		return (0);
 	return (-1);
 }
 
-long			ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int				neg;
 	int				i;
@@ -28,8 +28,8 @@ long			ft_atoi(const char *str)
 	i = 0;
 	neg = 1;
 	num = 0;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' ||
-			str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t'
+		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
